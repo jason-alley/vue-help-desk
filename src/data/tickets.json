@@ -1,0 +1,9 @@
+{
+    "id": "001",
+    "title": "Test ticket ",
+    "description": "This is a test ticket",
+    "status": "open",
+    "priority": "low",
+    "createdAt": "",
+    "updatedAt": ""
+}
