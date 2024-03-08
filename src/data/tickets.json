@@ -1,9 +1,31 @@
 {
-    "id": "001",
-    "title": "Test ticket ",
-    "description": "This is a test ticket",
-    "status": "open",
-    "priority": "low",
-    "createdAt": "",
-    "updatedAt": ""
+  "tickets": [
+    {
+      "id": "001",
+      "title": "First ticket",
+      "description": "This is a sample description for ticket",
+      "status": "open",
+      "priority": "low",
+      "createdAt": "2022-02-17T01:04:18.253Z",
+      "updatedAt": "2022-02-17T01:04:18.253Z"
+    },
+    {
+      "id": "002",
+      "title": "Second ticket",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "status": "open",
+      "priority": "high",
+      "createdAt": "2022-02-17T01:04:18.253Z",
+      "updatedAt": "2022-02-17T01:04:18.253Z"
+    },
+    {
+      "id": "003",
+      "title": "Third ticket",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "status": "closed",
+      "priority": "medium",
+      "createdAt": "2022-02-17T01:04:18.253Z",
+      "updatedAt": "2022-02-17T01:04:18.253Z"
+    }
+  ]
 }

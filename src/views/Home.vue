@@ -1,15 +1,15 @@
 <template>
   <div class="wrapper">
-    <Navbar />
-    <Ticket />
-    <Footer />
+    <Layout>
+      <TicketForm />
+    </Layout>
   </div>
 </template>
 
 <script setup>
-import Navbar from "../components/Navbar.vue";
-import Footer from "../components/Footer.vue";
-import Ticket from "../components/Ticket.vue";
+import Layout from "../components/Layout.vue";
+import TicketForm from "../components/TicketForm.vue";
 </script>
 
 <style lang="scss" scoped></style>
+../components/TicketForm.vue
