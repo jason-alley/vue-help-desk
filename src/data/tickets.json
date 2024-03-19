@@ -22,7 +22,25 @@
       "id": "003",
       "title": "Third ticket",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "status": "closed",
+      "status": "Completed",
+      "priority": "medium",
+      "createdAt": "2022-02-17T01:04:18.253Z",
+      "updatedAt": "2022-02-17T01:04:18.253Z"
+    },
+    {
+      "id": "004",
+      "title": "Change Header",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "status": "Completed",
+      "priority": "medium",
+      "createdAt": "2022-02-17T01:04:18.253Z",
+      "updatedAt": "2022-02-17T01:04:18.253Z"
+    },
+    {
+      "id": "005",
+      "title": "Update Css",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+      "status": "In Progress",
       "priority": "medium",
       "createdAt": "2022-02-17T01:04:18.253Z",
       "updatedAt": "2022-02-17T01:04:18.253Z"

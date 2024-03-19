@@ -19,6 +19,7 @@
           <label for="ticket-status">Status</label>
           <select id="ticket-status" class="pure-u-23-24">
             <option>Open</option>
+            <option>In Progress</option>
             <option>Closed</option>
           </select>
         </div>
