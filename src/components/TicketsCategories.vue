@@ -34,7 +34,9 @@ const completedTickets = computed(() => filterTicketsByStatus(props.tickets.tick
             <p>New Tickets</p>
             <Ticket v-for="ticket in newTickets" 
                 :key="ticket.id"
+                :id="+ticket.id"
                 :title="ticket.title"
+                :description="ticket.description"
                 :status="ticket.status"
                 :priority="ticket.priority"
             />
@@ -43,7 +45,9 @@ const completedTickets = computed(() => filterTicketsByStatus(props.tickets.tick
             <p>In Progress</p>
             <Ticket v-for="ticket in inProgressTickets" 
                 :key="ticket.id"
+                :id="+ticket.id"
                 :title="ticket.title"
+                :description="ticket.description"
                 :status="ticket.status"
                 :priority="ticket.priority"
             />
@@ -52,7 +56,9 @@ const completedTickets = computed(() => filterTicketsByStatus(props.tickets.tick
             <p>Completed</p>
             <Ticket v-for="ticket in completedTickets" 
                 :key="ticket.id"
+                :id="+ticket.id"
                 :title="ticket.title"
+                :description="ticket.description"
                 :status="ticket.status"
                 :priority="ticket.priority"
             />
@@ -62,13 +68,13 @@ const completedTickets = computed(() => filterTicketsByStatus(props.tickets.tick
 
 <style scoped>
 .tickets-col {
-    border: 0.2px solid #000;
-    background-color: #f0f0f0;
+    /* border: 0.2px solid #636363; */
+    background-color: #fcfcfc;
     border-radius: 5px;
     box-shadow: 0 0 2px #000;
     text-align: center;
     width: 32%;
-    height: 600px;
+    min-height: 600px;
     margin: 0 auto;
 }
 </style>
