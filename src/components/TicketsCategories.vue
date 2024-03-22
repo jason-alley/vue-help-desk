@@ -5,8 +5,8 @@ import Ticket from './Ticket.vue';
 
 const props = defineProps({
     tickets: {
-        type: Object,
         required: true,
+        type: Array,
     },
 });
 
@@ -20,9 +20,9 @@ function filterTicketsByStatus(tickets, status) {
     return tickets.filter(ticket => ticket.status === status);
 }
 
-const newTickets = computed(() => filterTicketsByStatus(props.tickets.tickets, 'open'));
-const inProgressTickets = computed(() => filterTicketsByStatus(props.tickets.tickets, 'In Progress'));
-const completedTickets = computed(() => filterTicketsByStatus(props.tickets.tickets, 'Completed'));
+const newTickets = computed(() => filterTicketsByStatus(props.tickets, 'Open'));
+const inProgressTickets = computed(() => filterTicketsByStatus(props.tickets, 'In Progress'));
+const completedTickets = computed(() => filterTicketsByStatus(props.tickets, 'Completed'));
 
 
 
@@ -31,7 +31,7 @@ const completedTickets = computed(() => filterTicketsByStatus(props.tickets.tick
 <template>
     <div class="pure-g">
         <div class="pure-u-1-3 tickets-col">
-            <p>New Tickets</p>
+            <p>Todo</p>
             <Ticket v-for="ticket in newTickets" 
                 :key="ticket.id"
                 :id="+ticket.id"

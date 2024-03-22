@@ -8,25 +8,31 @@ const status = ref("open");
 const description = ref("");
 
 
+/**
+ * Creates a new ticket object and submits it to the Supabase "tickets" table.
+ */
 async function submitTicket() {
   const newTicket = {
-    title: title.value,
-    description: description.value,
-    status: status.value,
-    priority: priority.value,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
+    title: title.value,
+    priority: priority.value,
+    status: status.value,
+    description: description.value,
   };
-  
-  // Save newTicket data to supabase table.
-  const { data, error } = await supabase.from("tickets").insert([newTicket]);
+
+  const { data, error } = await supabase
+    .from("tickets")
+    .insert([
+      newTicket,
+    ])
+    .select()
+
   if (error) {
-    console.error("Error inserting new ticket", error);
-  } else {
-    console.log("New ticket inserted", data);
+    console.error('Error inserting new ticket:', error)
+    return
   }
 
-  console.log(newTicket, 'new ticket!!!');
   title.value = "";
   priority.value = "low";
   status.value = "open";

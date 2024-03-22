@@ -1,24 +1,22 @@
 <script setup>
 import { ref, onMounted } from "vue";
-import data from "../data/tickets.json";
+// import data from "../data/tickets.json";
 import { supabase } from "../libs/supabase.js";
 
 import Layout from "../components/Layout.vue";
 import TicketsCategories from "../components/TicketsCategories.vue";
 
-const ticketsData = ref(data);
-
+const ticketsData = ref([]);
 
 /**
- * Fetch data from Supabase
+ * Fetch data from Supabase table.
  */
 async function getSupabaseData() {
   let { data, error } = await supabase.from("tickets").select("*");
   if (error) {
     console.error("Error fetching tickets", error);
-  } else {
-    console.log("Tickets from Supabase", data);
   }
+  ticketsData.value = data;
 }
 
 onMounted(() => {
@@ -34,5 +32,8 @@ onMounted(() => {
     <section>
       <TicketsCategories :tickets="ticketsData" />
     </section>
+    <!-- <div v-else>
+      Loading...
+    </div> -->
   </Layout>
 </template>
