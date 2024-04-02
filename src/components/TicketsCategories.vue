@@ -1,10 +1,12 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed } from 'vue';
 import Ticket from './Ticket.vue';
+import Modal from './Modal.vue';
 
-// const dialog = document.querySelector("dialog");
-const dialog = ref(null);
 let showModal = ref("false");
+let selectedTicket = ref({});
+const modalComponentRef = ref(null);
+
 
 const props = defineProps({
     tickets: {
@@ -34,46 +36,24 @@ const completedTickets = computed(() => filterTicketsByStatus(props.tickets, 'Co
  * Opens the dialog element.
  * @param {Number} id
  */
-function openModal(id) {
+function selectedTicketAndModalChange(id) {
     showModal = "true";
-
-    if (showModal === "true") {
-        dialog.value.showModal();
-    }
-
     // get the ticket with the id.
-    const ticket = props.tickets.find(ticket => ticket.id === id);
-    console.log(ticket, 'the selected ticket');
-
+    selectedTicket.value = props.tickets.find(ticket => ticket.id === id);
+    // console.log(selectedTicket, 'the selected ticket');
+    modalComponentRef.value.openModal();
 }
-
-/**
- * Closes the modal by calling the `close` method on the `dialog` object.
- *
- * @param {type} - No parameters.
- * @return {type} - No return value.
- */
-const closeModal = () => {
-    dialog.value.close();
-}
-
 
 </script>
 
 <template>
-    <dialog ref="dialog" closed>
-        <h3>Ticket Name</h3>
-        <form method="dialog">
-            <p>Hello from dialog box</p>
-            <button @click="closeModal">Close</button>
-        </form>
-    </dialog>
+    <Modal ref="modalComponentRef" :ticket="selectedTicket" />
     <div class="pure-g">
         <div class="pure-u-1-3 tickets-col">
             <p>Todo</p>
             <Ticket v-for="ticket in newTickets" :key="ticket.id" :id="+ticket.id" :title="ticket.title"
                 :description="ticket.description" :status="ticket.status" :priority="ticket.priority"
-                @click="openModal(ticket.id)" />
+                @click="selectedTicketAndModalChange(ticket.id)" />
         </div>
         <div class="pure-u-1-3 tickets-col">
             <p>In Progress</p>

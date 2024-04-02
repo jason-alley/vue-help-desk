@@ -1,34 +1,48 @@
 <script setup>
 import { ref } from 'vue';
 
+const dialog = ref(null);
+
 const props = defineProps({
-    showModal: {
-        type: String,
+    ticket: {
+        type: Object,
         required: true
     }
 })
 
 
-const dialog = document.querySelector("dialog");
-
-// "Show the dialog" based on the "showModal" prop
-if( props.showModal === "true" ) {
-    dialog.show();
+/**
+ * Opens the dialog element.
+ */
+const openModal = () => {
+    dialog.value.showModal();
 }
 
+defineExpose({
+    openModal
+});
 
-// "Close" button closes the dialog
+
+/**
+ * Closes the modal by calling the `close` method on the `dialog` object.
+ *
+ * @param {type} - No parameters.
+ * @return {type} - No return value.
+ */
 const closeModal = () => {
-    dialog.close();
+    dialog.value.close();
 }
+
 
 </script>
 
 <template>
-    <dialog closed>
-        <h3>Ticket Name</h3>
+    <dialog ref="dialog">
+        <h3>Ticket Name: {{ props.ticket.title }}</h3>
         <form method="dialog">
-            <p>Hello from dialog box</p>
+            <span>Status: {{ props.ticket.status }}</span>
+            <span>Priority: {{ props.ticket.priority }}</span>
+            <p>{{ props.ticket.description }}</p>
             <button @click="closeModal">Close</button>
         </form>
     </dialog>
